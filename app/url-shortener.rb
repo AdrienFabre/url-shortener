@@ -1,8 +1,16 @@
 require 'sinatra/base'
 
 class UrlShortener < Sinatra::Base
+  enable :sessions
+
   get '/' do
-    'Enter an URL'
+    erb :index
+  end
+
+  post '/' do
+    session[:url] = params[:name]
+    @url = session[:url]
+    erb :index
   end
 
   # start the server if ruby file executed directly

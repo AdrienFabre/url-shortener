@@ -24,6 +24,12 @@ If we need more, we could remove links that have not been visited for over 6 mon
 bundle install
 ```
 
+## Run Tests
+
+```bash
+rspec
+```
+
 ## Run App
 
 ```bash
