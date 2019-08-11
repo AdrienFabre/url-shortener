@@ -92,6 +92,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   coveralls
+  rack-test
   rspec
   rubocop
   shotgun
