@@ -1,65 +1,33 @@
-# Url Shortener Code Test
+[![Build Status](https://travis-ci.org/AdrienFabre/url-shortener.svg?branch=master)](https://travis-ci.org/AdrienFabre/url-shortener) [![Coverage Status](https://coveralls.io/repos/github/AdrienFabre/url-shortener/badge.svg?branch=master)](https://coveralls.io/github/AdrienFabre/url-shortener?branch=master)
 
-Without using an external database, we'd like you to create a URL shortening
-service. The URLs do not need to persist between restarts, but should be
-shareable between different clients while the server is running.
+# Url Shortener
 
-- There should be an endpoint that responds to `POST` with a json body
-  containing a URL, which responds with a JSON repsonse of the short url and
-  the orignal URL, as in the following curl example:
+This program helps users to create a short URL from any URL.
 
-```
-curl localhost:4000 -XPOST -d '{ "url": "http://www.farmdrop.com" }'
-{ "short_url": "/abc123", "url": "http://www.farmdrop.com" }
-```
+## User Story
 
+As a user,
+So I can create user friendly concise URLs,
+I want to be able to paste my URL and get returned a short URL.
 
-- When you send a GET request to a previously returned URL, it should redirect
-  to the POSTed URL, as shown in the following curl example:
+## Parameters
 
-```
-curl -v localhost:4000/abc123
-...
-< HTTP/1.1 301 Moved Permanently
-...
-< Location: http://www.farmdrop.com
-...
-{ "url": "http://www.farmdrop.com" }
+This programme needs to store many shorts URLs. We need to find a balance between the number of possibilities and the number of characters.
+
+Enabling a-z, A-Z and 0-9 would enable 62 possible characters. With 6 characters, we could generate 6^62 short urls, so 56 800 235 584.
+
+If we need more, we could remove links that have not been visited for over 6 months.
+
+## Installation
+
+```bash
+bundle install
 ```
 
-Use whatever languages and frameworks you are comfortable with. Don't worry
-about getting the whole thing working flawlessly, this is more to see how you
-structure a program. Please don't spend more than a few hours on it.
+## Run App
 
-Bonus points:
+```bash
+shotgun config.ru
+```
 
-- I often forget to type "http://" at the start of a URL. It would be nice if
-  this was handled by the application (frontend or backend is up to you).
-- We like to see how you approach the problem, so a few git commits with a
-  clear message about what you're doing are better than one git commit with
-  everything in it.
-- We like tests. We don't expect a full test suite, but some tests would be
-  nice to see. Its up to you whether thats integration, unit or some other
-  level of testing.
-- We'd be very happy to see a Dockerfile to run the project. This by no means a
-  requirement, so don't go reading the Docker docs if you've never worked with
-  it.
-- If you'd like to show off your frontend skills, you could create a simple
-  frontend that can create and display shortened URLs without reloading the
-  page.
-
-## Submission
-
-Please clone this repository, write some code and update this README with a
-guide of how to run it.
-
-Either send us a link to the repository on somewhere like github or bitbucket
-(bitbucket has free private repositories) or send us a git bundle.
-
-    git bundle create yournamehere-url-shortener-test.bundle master
-
-And send us the resulting `yournamehere-url-shortener-test.bundle` file.
-
-This `.bundle` file can be cloned using:
-
-    git bundle clone bundle-filename.bundle -b master directory-name
+Run on: [http://localhost:9393/](http://localhost:9393/)
