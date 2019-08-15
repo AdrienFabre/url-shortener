@@ -24,12 +24,6 @@ If we need more, we could remove links that have not been visited for over 6 mon
 bundle install
 ```
 
-## Run Tests
-
-```bash
-rspec
-```
-
 ## Run App
 
 ```bash
@@ -37,3 +31,40 @@ shotgun config.ru
 ```
 
 Run on: [http://localhost:9393/](http://localhost:9393/)
+
+When a url is shorthened, the file 'url_pairs.json' will be created and data will be stored.
+
+## Run Tests
+
+```bash
+rspec
+```
+
+When the test is running, the file 'url_pairs_test.json' will be created and data will be stored, then the file will be automatically deleted.
+
+### Results
+
+```bash
+Controller: UrlShortener
+  displays home page
+  redirects to saved url
+
+Scenario: user shortens a url
+  user can see instructions on the homepage
+  user can paste an url an receive a short url
+
+Shortener
+  creates a short url
+  retrieves a short url
+
+Finished in 0.055 seconds (files took 0.38691 seconds to load)
+6 examples, 0 failures
+
+Coverage report generated for RSpec to /home/adrien/Projects/ruby/url-shortener-code-test/coverage. 84 / 84 LOC (100.0%) covered.
+```
+
+## Run auto formater
+
+```bash
+bundle exec rbprettier --write '**/*.rb'
+```

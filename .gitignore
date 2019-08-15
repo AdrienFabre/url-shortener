@@ -1,3 +1,7 @@
 # Ignore test-related files
 /coverage.data
 /coverage
+.vscode/settings.json
+url_pairs.json
+url_pairs_test.json
+
