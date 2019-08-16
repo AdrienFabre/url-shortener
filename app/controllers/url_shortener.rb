@@ -10,12 +10,12 @@ class UrlShortener < Sinatra::Base
 
   post '/' do
     url = params[:url] ? params : JSON.parse(params.keys[0])
-    @url_pair = Shortener.create_short_url(url)
+    @url_pair = Shortener.process_url(url)
     erb :index
   end
 
   get '/:short_url' do
-    url_pair = Shortener.retrieve_url(params[:short_url])
+    url_pair = Shortener.retrieve_pair_by_short_url(params[:short_url])
     redirect to(url_pair['url'].to_s), 301, url_pair.to_s
   end
 

@@ -10,6 +10,10 @@ As a user,
 So I can create user friendly concise URLs,
 I want to be able to paste my URL and get returned a short URL.
 
+### Edge cases
+
+The user can provide the URL with or without `http://`.
+
 ## Parameters
 
 This programme needs to store many shorts URLs. We need to find a balance between the number of possibilities and the number of characters.
