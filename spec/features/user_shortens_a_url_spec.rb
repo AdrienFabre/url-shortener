@@ -14,4 +14,18 @@ feature 'Scenario: user shortens a url' do
     click_button('Shorten')
     expect(page).to have_content 'cccccc'
   end
+
+  scenario 'user receives a message if empty url is submited' do
+    visit '/'
+    fill_in 'urlBox', with: ''
+    click_button('Shorten')
+    expect(page).to have_content 'Fill the box with a valid url!'
+  end
+
+  scenario 'user receives a message if unvalid url is submited' do
+    visit '/'
+    fill_in 'urlBox', with: 'http://attitude'
+    click_button('Shorten')
+    expect(page).to have_content 'Fill the box with a valid url!'
+  end
 end

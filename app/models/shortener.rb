@@ -2,11 +2,9 @@ require 'json'
 
 class Shortener
   FILE = './url_pairs.json'.freeze
-  HTTP_REGEX = %r{https?:\/\/[\S]+}.freeze
   RAND_SOURCE = ('a'..'z').to_a + ('A'..'Z').to_a + (0..9).to_a
 
   def self.process_url(url_pair)
-    url_pair['url'] = format_url(url_pair['url'])
     saved_urls = retrieve_saved_urls
     if url_already_saved?(url_pair['url'], saved_urls)
       retrieve_pair_by_url(url_pair['url'], saved_urls)
@@ -23,10 +21,6 @@ class Shortener
 
   def self.retrieve_pair_by_url(url, saved_urls)
     saved_urls.map { |url_pair| return url_pair if url_pair['url'] == url }
-  end
-
-  def self.format_url(url)
-    !(url =~ HTTP_REGEX).nil? ? url : "http://#{url}"
   end
 
   def self.url_already_saved?(url, saved_urls)
@@ -63,7 +57,6 @@ class Shortener
 
   private_class_method :retrieve_pair_by_url,
                        :generate_short_url,
-                       :format_url,
                        :url_already_saved?,
                        :retrieve_saved_urls,
                        :save_to_file
