@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Scenario: user shortens a url' do
   scenario ' user can see instructions on the homepage' do
     visit '/'
-    expect(page).to have_content 'Paste your URL! Get a short one!'
+    expect(page).to have_content 'Paste your URL!'
   end
 
   scenario 'user can paste an url an receive a short url' do

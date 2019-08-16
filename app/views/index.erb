@@ -1,19 +1,19 @@
-<h1>Paste your URL! Get a short one!<h1>
+</div><body bgcolor="#33ccff">
+<div align='center' style="font-family:Helvetica; font-weight: lighter; padding-top: 80px">
 
-<form method="POST" action="/" >
-<input type="text" name="url" value="" id="urlBox"/>
-<input type="submit" value="Shorten"  />
+<h1>Paste your URL!<h1>
+
+<form method="POST" action="/" style="padding-top: 20px">
+<input type="text" name="url" value="" id="urlBox" style="border: 2px solid black; border-radius: 4px; width: 160px; height: 30px;"/>
+<br>
+<input type="submit" value="Shorten" style="border: 2px solid black; border-radius: 4px; width: 120px; height: 30px; margin: 20px; font-size: 15px;"  />
 </form>
-
-
-
 <% if @url_pair != nil %>
-<h4>Original url:</h4>
-<h3><%= @url_pair['url']%></h3>
-<h4>Short url:</h4>
-<h3><%= "http://#{@url_pair['short_url']}"%></h3>
+<h2 style="padding-top: 10px"><%= @url_pair['url']%></h2>
+<h2 style="padding-top: 10px"><a href="<%= "http://localhost:9393/#{@url_pair['short_url']}"%>"><%= "#{@url_pair['short_url']}"%></a></h2>
 <% else %>
 
 <h2>Fill the box with a valid url!</h2>
 
 <% end %>
+</body>
