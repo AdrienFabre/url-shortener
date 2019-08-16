@@ -3,7 +3,6 @@ require 'spec_helper'
 describe Shortener do
   it 'creates a short url' do
     stub_const('Shortener::FILE', 'url_pairs_test.json')
-
     allow(Shortener).to receive(:rand).and_return(0)
     url_pair = { 'url' => 'http://itakepart.org/' }
     expect(Shortener.process_url(url_pair)).to eq(
@@ -13,8 +12,6 @@ describe Shortener do
 
   it 'prevents creating a new short url if url is already saved' do
     stub_const('Shortener::FILE', 'url_pairs_test.json')
-
-    allow(Shortener).to receive(:rand).and_return(0)
     url_pair = { 'url' => 'http://itakepart.org/' }
     expect(Shortener.process_url(url_pair)).to eq(
       'short_url' => 'aaaaaa', 'url' => 'http://itakepart.org/'
