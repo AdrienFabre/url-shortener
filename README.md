@@ -4,7 +4,13 @@
 
 This program helps users to create a short URL from any URL.
 
-![Screenshot.png](Screenshot.png)
+## View
+
+![Screenshot-view.png](Screenshot-view.png)
+
+## Endpoint
+
+![Screenshot-command-line.png](Screenshot-command-line.png)
 
 ## User Story
 
