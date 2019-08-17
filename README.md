@@ -4,6 +4,8 @@
 
 This program helps users to create a short URL from any URL.
 
+![Screenshot.png](Screenshot.png)
+
 ## User Story
 
 As a user,
@@ -56,15 +58,18 @@ Controller: UrlShortener
 Scenario: user shortens a url
   user can see instructions on the homepage
   user can paste an url an receive a short url
+  user can visit the new created link to be redirected
+  user can click on the new created link to be redirected
+  user can read a message if empty url is submited
+  user read a message if unvalid url is submited
 
 Shortener
-  creates a short url
-  retrieves a short url
+  creates and binds a short url when the url is new
+  retrieves the short url when the url was saved
+  retrieves a url by the short url
 
-Finished in 0.055 seconds (files took 0.38691 seconds to load)
-6 examples, 0 failures
-
-Coverage report generated for RSpec to /home/adrien/Projects/ruby/url-shortener-code-test/coverage. 84 / 84 LOC (100.0%) covered.
+Finished in 0.1631 seconds (files took 0.54503 seconds to load)
+11 examples, 0 failures
 ```
 
 ## Run auto formater
